@@ -14,6 +14,7 @@ import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { fetchUser, fetchUserRepos } from "@/api/github";
+import UserSkeleton from "@/components/skeletons/user";
 
 export default function Profile() {
   const [userName, setUserName] = useState('');
@@ -123,7 +124,9 @@ export default function Profile() {
         </button>
       </div>
 
-      {!user ? (
+      {loadingUser ? (
+        <UserSkeleton />
+      ) : !user ? (
         <div className="bg-gray-50 flex justify-center items-center h-96">
           <h2 className="text-xl text-red-600">
             Não há usuários com esse nome: <span className="text-blue-400">{username}</span>
