@@ -108,8 +108,10 @@ export default function Profile() {
 
   return (
     <div className="bg-gray-50">
-      <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-10 py-4 bg-white">
-        <button onClick={goToHome} className="text-2xl w-full cursor-pointer max-w-fit text-end text-blue-700 font-medium">Search <span className="text-purple-700">d_evs</span></button>
+      <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-10 py-5 bg-white">
+        <button onClick={goToHome} className="text-2xl w-full cursor-pointer max-w-fit text-end text-blue-700 font-medium">
+          Search <span className="text-purple-700">d_evs</span>
+        </button>
         <div className="relative ">
           <Search className="absolute left-2 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
           <input type="text" placeholder="Search" value={userName} onChange={(value) => setUserName(value.target.value)}
@@ -128,7 +130,7 @@ export default function Profile() {
           </h2>
         </div>
       ) : (
-        <div className="flex flex-col lg:flex-row p-4 md:p-12 lg:p-24 text-gray-700 gap-8 min-h-screen">
+        <div className="flex flex-col lg:flex-row p-4 md:p-12 lg:p-16 text-gray-700 gap-8 min-h-screen">
           <div className="flex flex-col w-full lg:w-1/3 xl:w-1/5 gap-8">
             <div className="flex flex-col gap-8  bg-white p-6 h-fit">
               <div className="flex gap-2">
@@ -166,9 +168,11 @@ export default function Profile() {
                 <div className="flex gap-2 items-end"> <MailIcon className="" />
                   <p className="text-sm"> {user?.email ?? 'Não informado'} </p>
                 </div>
-                <div className="flex gap-2 items-end"> <LinkIcon className="" />
-                  <a href={user?.blog} target="_blank" className="text-sm"> {user?.blog ?? 'Não informado'} </a>
-                </div>
+                {user?.blog &&
+                  <div className="flex gap-2 items-end"> <LinkIcon className="" />
+                    <a href={user?.blog} target="_blank" className="text-sm"> {user?.blog ?? 'Não informado'} </a>
+                  </div>
+                }
                 <div className="flex gap-2 items-end">
                   <BadgePlusIcon className="" />
                   <a href={user?.twitter_username} className="text-sm"> {user?.twitter_username ? `@${user?.twitter_username}` : 'Não informado'} </a>
