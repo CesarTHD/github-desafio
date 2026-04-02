@@ -100,6 +100,11 @@ export default function Profile() {
   }, [hasMore, loadingRepos, page, loadRepos]);
 
   const searchUser = () => {
+    if (!userName) {
+      setError('Type user name.');
+      return;
+    };
+
     router.push(`/profile/${userName}`);
   }
 
@@ -116,7 +121,7 @@ export default function Profile() {
         <div className="relative ">
           <Search className="absolute left-2 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
           <input type="text" placeholder="Search" value={userName} onChange={(value) => setUserName(value.target.value)}
-            className="outline-1 rounded-sm outline-gray-200 text-sm p-2 pl-8 w-full max-w-lg focus:outline-purple-700 focus:outline-2"
+            className={"outline-1 rounded-sm outline-gray-200 text-sm p-2 pl-8 w-full max-w-lg focus:outline-purple-700 focus:outline-2"}
           />
         </div>
         <button onClick={searchUser} className="bg-purple-700 text-white py-2 px-10 text-sm rounded-sm cursor-pointer">
