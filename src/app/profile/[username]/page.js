@@ -110,12 +110,13 @@ export default function Profile() {
     <div className="bg-gray-50">
       <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-10 py-4 bg-white">
         <button onClick={goToHome} className="text-2xl w-full cursor-pointer max-w-fit text-end text-blue-700 font-medium">Search <span className="text-purple-700">d_evs</span></button>
-        <div className="relative "> <Search className="absolute left-2 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+        <div className="relative ">
+          <Search className="absolute left-2 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
           <input type="text" placeholder="Search" value={userName} onChange={(value) => setUserName(value.target.value)}
             className="outline-1 rounded-sm outline-gray-200 text-sm p-2 pl-8 w-full max-w-lg focus:outline-purple-700 focus:outline-2"
           />
         </div>
-        <button onClick={searchUser} className="bg-purple-700 text-white py-1 px-10 text-sm rounded-sm cursor-pointer">
+        <button onClick={searchUser} className="bg-purple-700 text-white py-2 px-10 text-sm rounded-sm cursor-pointer">
           Search
         </button>
       </div>
